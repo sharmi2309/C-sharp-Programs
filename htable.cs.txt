@@ -1,0 +1,40 @@
+using System;
+using System.Collections;
+public class htable{
+    public static void Main(string[] args){
+        Hashtable h=new Hashtable();
+        h.Add(1,"sharmi");
+        h.Add(2,"aadhi");
+        h.Add(3,"sowmyaa");
+        h.Add(4,"priya");
+        Console.WriteLine(h[2]);
+        if (h.ContainsKey(4))
+        {
+            Console.WriteLine("present");
+        }
+        h.Remove(3);
+        foreach (DictionaryEntry i in h)
+        {
+            Console.WriteLine(i.Key + " " + i.Value);
+        }
+        Console.WriteLine("Duplicate elements and their count");
+        int[] a={4,5,6,7,7,3,2,5,6,2,5,5,7,8,9,2};
+        Hashtable h1=new Hashtable();
+        foreach(int i in a)
+        if(h1.ContainsKey(i))
+        {
+            int c=(int)h1[i];
+            h1[i]=c+1;
+        }
+        else{
+            h1.Add(i,1);
+        }
+        foreach (DictionaryEntry i in h1)
+        {
+            if((int)i.Value>1){
+            Console.WriteLine(i.Key + " " + i.Value);
+            }
+        }
+        
+    }
+}

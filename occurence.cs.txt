@@ -1,0 +1,51 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+public class occurence{
+    public static void Main(string[] args)
+    {
+        ArrayList a=new ArrayList();
+        a.Add("sharmi");
+        a.Add("aadhira");
+        a.Add("priya");
+        a.Add("sowmyaa");
+        a.Add("kala");
+        Console.WriteLine("Added elements:");
+        foreach(var i in a){
+            Console.WriteLine(i);
+        }
+         
+        a.Insert(4,"yuvii");
+        Console.WriteLine("After Insertion:");
+        foreach(var i in a){
+            Console.WriteLine(i);
+        }
+        a.Remove("kala");
+        Console.WriteLine("After Removal:");
+        foreach(var i in a){
+            Console.WriteLine(i);
+        }
+        a.Sort();
+        Console.WriteLine("After Sorted:");
+        foreach(var i in a){
+            Console.WriteLine(i);
+        }
+        a.Insert(5,"sharmi");
+        a.Insert(1,"priya");
+        Dictionary<string,int> occur=new Dictionary<string, int>();
+        foreach(string i in a)
+        {
+            if(occur.ContainsKey(i))
+            {
+                occur[i]++;
+            }
+            else{
+                occur[i]=1;
+            }
+        }
+        Console.WriteLine("Occurence of items:");
+        foreach(KeyValuePair<string,int>ky in occur){
+            Console.WriteLine("{0} {1}",ky.Key,ky.Value);
+        }
+    }
+}

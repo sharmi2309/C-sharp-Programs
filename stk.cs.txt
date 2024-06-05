@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+
+public class stk{
+    public static void Main(string[]args){
+        Console.WriteLine("Enter the expression:");
+        string e = Console.ReadLine();
+        int res = postfix(e);
+        Console.WriteLine(res);
+    }
+    public static int postfix(string exp){
+        Stack<int> s=new Stack<int>();
+        string[]st=exp.Split(' ');
+        foreach(string i in st)
+        {
+            if(i.Length==1 && char.IsDigit(i[0])){
+              s.Push(i[0]-'0');
+            }
+            else{
+                int o2=s.Pop();
+                int o1=s.Pop();
+                int result=0;
+                switch(i){
+                    case "+":
+                        result=o1+o2;
+                        break;
+                    case "-":
+                        result=o1-o2;
+                        break;
+                    case "*":
+                        result=o1*o2;
+                        break;
+                    case "/":
+                        result=o1/o2;
+                        break;
+                }
+                s.Push(result);
+            }
+            
+        }
+        return s.Pop();
+     }
+}
